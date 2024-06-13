@@ -18,6 +18,12 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+      # Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          aws-region: ${{ vars.AWS_REGION }}
 
       # TODO
       # Configure AWS credentials
